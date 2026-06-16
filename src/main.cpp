@@ -33,7 +33,7 @@ int main() {
     curl_global_init(CURL_GLOBAL_ALL);
     double start_time = omp_get_wtime();
 
-    std::cout << "=== PROCESAMIENTO PARALELO UTEM COMPLETO ===" << std::endl;
+    std::cout << "=== PROCESAMIENTO ===" << std::endl;
     
     bool local_mode = false; 
     std::cout << "Seleccione entorno: 1. Produccion | 2. Local: ";
