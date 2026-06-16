@@ -14,7 +14,7 @@ private:
     std::string get_bearer_token();
     std::string perform_get_request(const std::string& url); // Asegurado como const ref
 
-    // Declaración necesaria del callback
+    // callback
     static size_t write_callback(void* contents, size_t size, size_t nmemb, void* userp);
 
 public:
