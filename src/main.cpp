@@ -13,7 +13,6 @@
 
 namespace fs = std::filesystem;
 
-// Función restaurada: Verifica que el archivo descargado no esté corrupto
 bool es_archivo_valido(const std::string& path) {
     std::ifstream file(path);
     if (!file.is_open()) return false;
@@ -43,7 +42,7 @@ int main() {
     curl_global_init(CURL_GLOBAL_ALL);
     double start_time = omp_get_wtime();
 
-    std::cout << "=== PROCESAMIENTO PARALELO UTEM COMPLETO ===" << std::endl;
+    std::cout << "=== PROCESAMIENTO ===" << std::endl;
     
     bool local_mode = false; 
     std::cout << "Seleccione entorno: 1. Produccion | 2. Local: ";
@@ -54,7 +53,6 @@ int main() {
     APIClient api_client;
     if (!api_client.init_session(local_mode)) return 1;
 
-    // --- BLOQUE RESTAURADO: DESCARGA SFTP ---
     std::cout << "\nConectando a SFTP (137.184.45.251)..." << std::endl;
     SFTPClient sftp_client("137.184.45.251", "utem", "CPyD.2026");
     std::vector<std::string> remote_files = sftp_client.list_csv_files();
@@ -103,7 +101,7 @@ int main() {
     }
     // ----------------------------------------
 
-    // --- BLOQUE DE PROCESAMIENTO CSV ---
+    // --- PROCESAMIENTO CSV ---
     std::vector<std::string> files_to_process;
     for (const auto& entry : fs::directory_iterator(local_dir)) {
         if (entry.is_regular_file() && entry.path().extension() == ".csv") {
@@ -150,7 +148,7 @@ int main() {
         }
     } 
 
-    // --- BLOQUE DE RESULTADOS ---
+    // --- RESULTADOS ---
     double p_fem = count_femenino ? sum_femenino/count_femenino : 0;
     double p_masc = count_masculino ? sum_masculino/count_masculino : 0;
     double t_total = omp_get_wtime() - start_time;
