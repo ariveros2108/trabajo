@@ -4,7 +4,7 @@ import random
 
 class MockAPI(BaseHTTPRequestHandler):
     
-    # Manejador de respuestas para evitar errores de conexión
+    # MockAPI para local, se uso por que se demoraba demasiado al llamar a la api
     def send_json_response(self, data):
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
