@@ -123,7 +123,7 @@ std::string APIClient::fetch_gender(const std::string& id, APICache& cache) {
         }
     }
     
-    // Pequeña pausa de seguridad para no saturar la CPU
+    // PAUSA
     usleep(1000); 
     cache.put(id, gender);
     return gender;
