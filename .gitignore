@@ -1,0 +1,19 @@
+# Directorios de compilación
+build/
+
+# Binarios y ejecutables
+proyecto
+*.o
+*.out
+
+# Archivos de logs y resultados (para no subir datos locales)
+log.txt
+resultados.txt
+
+# Directorio de datos (si prefieres no subir los CSVs descargados)
+datos_csv/
+
+# Archivos ocultos de sistema
+.DS_Store
+.vscode/
+.idea/
