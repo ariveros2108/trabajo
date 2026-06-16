@@ -1,0 +1,5 @@
+Fallo critico: No se pudo obtener el JWT.
+Fallo critico: No se pudo obtener el JWT.
+Fallo critico: No se pudo obtener el JWT.
+Error parseo CSV: datos_csv/reporte_25156.csv
+Error critico en archivo: datos_csv/reporte_25156.csv
